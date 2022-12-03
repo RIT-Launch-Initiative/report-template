@@ -3,7 +3,7 @@ ifndef $(target)
 endif
 
 all:
-	latexmk -pdf -halt-on-error example.tex
+	latexmk -pdf -c -halt-on-error example.tex
 	cp example.pdf $(target).pdf
 clean:
 	rm -f *.aux
