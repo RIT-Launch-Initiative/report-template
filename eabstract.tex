@@ -8,6 +8,14 @@
 
 \usepackage{graphicx, siunitx, verbatim}
 
+\newif\iffigures
+
+\figuresfalse
+
+\iffigures\else
+	\renewenvironment{figure}{\comment}{\endcomment}
+	\renewenvironment{table}{\comment}{\endcomment}
+\fi
 % Report body
 \sacteam{XXX}
 \sacyear{YYYY}
