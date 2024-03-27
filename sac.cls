@@ -46,6 +46,7 @@
 
 \newcommand{\subtitle}[1]{\def\@subtitle{#1}}
 
+%%% Automatic required titles
 % Extended Abstract required subtitle
 \if@eabstract
 \subtitle{Team \@sacteam{} Project Technical Presentation \\ to the \\ \@sacyear{} Spaceport America Cup}
@@ -56,6 +57,7 @@
 \subtitle{Team \@sacteam{} Project Technical Report \\ to the \\ \@sacyear{} Spaceport America Cup}
 \fi
 
+% Automatic title and subtitile
 \renewcommand{\maketitle}{
   \begingroup
   \renewcommand\and{\\[\baselineskip]}
@@ -71,12 +73,15 @@
   \setcounter{footnote}{0}
 }
 
-
+%%% Section header formatting
 \RequirePackage[explicit]{titlesec}
+
+% Default formatting
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
+% Extended Abstract formatting
 \if@eabstract
 
 \titleformat{\section}
@@ -86,6 +91,7 @@
 
 \fi
 
+% Report formatting
 \if@report
 
 \titleformat{\section}
@@ -100,6 +106,23 @@
   {\normalsize\itshape}
   {\arabic{subsubsection}.\space}{0pt}{#1}[]
 \titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0pt}
+
+% Report appendix formatting
+\let\baseappendix\appendix
+\renewcommand{\appendix}{
+    \pagebreak
+    \baseappendix
+    \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+    \titleformat{\subsection}
+      {\normalsize\bfseries}
+      {\arabic{subsection}.\space}{0pt}{##1}[] % two ## becuase this is a nested command
+    \titlespacing{\subsection}{0pt}{0.5\baselineskip}{0pt}
+    \titleformat{\subsubsection}
+      {\normalsize\itshape}
+      {\arabic{subsubsection}.\space}{0pt}{##1}[] % two ## because ditto
+    \titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0pt}
+}
 
 \fi
 
