@@ -6,36 +6,36 @@
 \documentclass[report]{sac}
 \usepackage[utf8]{inputenc}
 
-% Text
-\usepackage{siunitx, verbatim}
-% Figures
-\usepackage{graphicx, float, subcaption, longtable, tabularx}
-% Fancier tables
-\usepackage{multicol, multirow}
-% Page control
-\usepackage{pdflscape, pdfpages}
+\usepackage{siunitx, verbatim, fancyhdr} % Text
+\usepackage{graphicx, float, subcaption, longtable, tabularx} % Figures
+\usepackage{multicol, multirow} % Fancier tables
+\usepackage{pdflscape, pdfpages} % Page control
 
-%%%% Flags
+%%% ATTENTION EDITORS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Scroll down to the "WRITE THE REPORT" section or click on the headings in the "file outline" in the bottom-left of your screen
 
+%% Document flags %%
 % WIP: "Work in progress" flag
 % Comment out \wiptrue to omit draft watermark, formatting examples, and section descriptions
 \newif\ifwip
-
-\wiptrue
-
+\wiptrue %%%%%%%%%%
 \ifwip
 \usepackage{draftwatermark}
 \SetWatermarkText{DRAFT}
 \SetWatermarkScale{1}
+\SetWatermarkLightness{0.95}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[c]{\uppercase{
+Work-in-progress mode: includes section descriptions and formatting examples
+}}
 \fi
 
 % nofigures: "No figures" flag
 % Comment out \figurestrue to compile the document without figures to check text length (<25 pages)
-
 \newif\iffigures
-
-\figurestrue
-
+\figurestrue %%%%%%%%%%
 \iffigures\else
 	\renewenvironment{figure}{\comment}{\endcomment}
 	\renewenvironment{table}{\comment}{\endcomment}
@@ -45,41 +45,37 @@
 % dwg: Engineering drawings flag
 % Comment out \dwgtrue to compile without engineering drawings to save time
 \newif\ifdwg
-
-\dwgtrue
-
-%%%% Helper macros
+\dwgtrue %%%%%%%%%%
 \input{lib/report-descriptions}
-\newcommand\putdescription[1]
-{
-	\ifwip
-		\begingroup
-		\small\em
-		#1
-		\endgroup
-	\fi
-}
+\newcommand\putdescription[1]{
+\ifwip
+    \begingroup
+    \small\em
+    #1
+    \endgroup
+\fi}
+%% End document flags %%
 
-\newcommand\pageleftblank
-{
-	\begin{center}
-		\large
-		THIS PAGE INTENTIONALLY LEFT BLANK
-	\end{center}
-}
-
+%% Helpers %%
+\newcommand\pageleftblank{
+\begin{center}
+    \Large
+    THIS PAGE INTENTIONALLY LEFT BLANK
+\end{center}}
 \newcommand\putdrawings[1]{\ifdwg\includepdf[pages=-,fitpaper]{#1}\fi}
+%% End helpers %%
 
-%%%%%%%%%%%%%%%%
-%%%% Report body
-
+%%% TEAM LEADER: POPULATE THESE
+%% Document variables %%
 \sacteam{XXX}
 \sacyear{YYYY}
 
-\title{Project Technical Report Title}
+\title{Project Technical Report Title} % Whatever you want
 
-\author{First A. Author\footnote{Author Title}}
+\author{First A. Author\footnote{Author Title} and Second B. Buthor\footnote{Buthor Ti tle}}
 \affil{Institution, Address}
+
+%% End document variables %%
 
 \begin{document}
 
@@ -89,11 +85,7 @@
 	\putdescription{\AbstractDescription}
 \end{abstract}
 \section{Nomenclature}
-
-\ifwip
-	Use all variables defined here. Do not define acronyms here.
-\fi
-
+\putdescription{\NomenclatureDescription}
 {
     \renewcommand\arraystretch{1.0}
 	\noindent
@@ -110,6 +102,7 @@
  }
 
 
+%%%% WRITE THE REPORT
 	\section{Introduction} \label{intro}
 	\putdescription{\IntroductionDescription}
  
@@ -131,64 +124,17 @@
 	\section{Conclusion and Lessons Learned}
 	\putdescription{\ConclusionDescription}
 
-	\pagebreak
 	\appendix
+    \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
 	\ifwip
-		\section*{Formatting examples}
-
-		This section provides examples of \LaTeX{} tables, figures, equations,
-		lists, citations, and references to the same. This will not be compiled if
-		the WIP flag is not set.
-
-		\paragraph{Figures} Use the following code to create a figure or table, and
-		\verb|ref| to refer to it (Fig. \ref{fig:example-fig}, Tables
-		\ref{tbl:example-table} \& \ref{tbl:fos-summary-example}):
-
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=2in]{fig/graph.jpg} % path to figure
-			\caption{Magentization as a function of applied fields} 
-			\label{fig:example-fig} % how we refer to this figure's number
-			% Figures must have "fig:" in the label and tables must have "tbl:" in
-			% the label
-		\end{figure}
-
-		\begin{table}[H]
-			\centering
-			\caption{Informative table caption}
-			% in this case, Tabular is how we express a table in LaTeX, but if we
-			% had a picture of a table, we would include that using \includegraphics
-			% or similar.
-
-			% the vertical bars you put in the spec will appear - if you want two
-			% columns to not be separated, omit that bar.
-			\begin{tabular}{|l|cr|p{2in}|} 
-
-				% MANDATORY: Each table row starts with "\hline" and ends with "\\"
-				\hline Left column & Centered column & Right column & 2" fixed-width
-				column \\
-				\hline A & B & C & Lorem ipsum dolor sit amet, consectetur adipiscing elit \\
-				\hline D & E & F & sed do eiusmod tempor incididunt ut labore et
-				dolore magna aliqua \\
-				\hline % MANDATORY: Table ends with one "\hline"
-			\end{tabular}	
-			\label{tbl:example-table}
-		\end{table}	
-
-		\begin{table}[H]
-			\centering
-			\caption{Table with image body}
-			\includegraphics[width=4in]{fig/table.png}
-			\label{tbl:fos-summary-example}
-		\end{table}
-
-		\paragraph{Citations} Use the \verb|cite| command to cite resources in the
-		\verb|.bib| file \cite{peyret2012computational, oates1997aerothermodynamics}.
+        \input{lib/examples}
 	\fi
 
 	\section{System Weights, Measures, and Performance Data}\label{measures}
 	\putdescription{\SystemMeasuresDescription}
+    \subsection{Test subsection}
 
 	\pagebreak
 	\section{Project Test Reports}\label{test-reports}
