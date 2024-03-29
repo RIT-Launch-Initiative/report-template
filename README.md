@@ -22,21 +22,20 @@ not modified) will not compile if this directory and its files are not present.
 ## Technical Report Template
 The tech report uses `\documentclass[report]{sac}`. The major sections and parts
 of required appendicies are present. The report's compilation is controlled by
-three flags: `\wip`, `\figures`, and `\dwg`.
+three options passed to `\documentclass[report, ...]{sac}`: `wip`, `nofig`, and `nodwg`.
 
-`\wiptrue` compiles all of the "work-in-progress" markers: the section
+`wip` compiles all of the "work-in-progress" markers: the section
 descriptions taken from the (at time of writing, 2023) Rules and Requirements,
 italicized and in small font, formatting examples (throughout the text and in
-the first appendix), and a DRAFT watermark. 
+the first appendix), a header to make it clear this is WIP mode, and a DRAFT watermark. 
 
-`\figurestrue` compiles the report with figures and tables. This is intended to
-be commented out briefly, to check that the report body satisfies the 25-page
-text-only limit.
+`nofig` compiles the report without figures and tables. This is intended to be
+used briefly to check that the report body satisfies the text-only page limit.
 
-`\dwgtrue` compiles the report with drawings. This is intended to be used only
-at the very end, as mechanical drawings substantially increase compilation time
-and file size. If used in conjunction with `\putdrawings{<path>}`, the flag will
-add the specified PDF, preserving page sizes.
+`nodwg` compiles the report without drawings. This is intended to be used for
+most fo the report's life to save compilation time drastically. If used in
+conjunction with `\putdrawings{<path>}`, the flag will add the specified PDF,
+preserving page sizes, unless the `nodwg` option is present.
 
 ## Extended Abstract Template
 Barebones template for Extended Abstracts.
