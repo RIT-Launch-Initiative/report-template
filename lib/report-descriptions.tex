@@ -1,4 +1,8 @@
-% 2023 Descriptions
+\newcommand\formlink[1]{\href{#1}
+{http://www.soundingrocket.org/sa-cup-documents--forms.html}}
+
+% 2024 Descriptions
+
 \def\NomenclatureDescription
 {
 	Use all variables defined here. Do not define acronyms here.
@@ -8,7 +12,7 @@
 {
 	At a minimum, the abstract shall identify the launch vehicles
 	mission/category, identify any unique/defining characteristics, define the
-	payload's mission (if applicable), and provide whatever additonal
+	payload's mission (if applicable), and provide whatever additional
 	information may be necessary to convey any other high-level project or
 	program goals \& objectives.
 }
@@ -23,58 +27,91 @@
 
 \def\SAODescription
 {
-	This section shall begin with a top-level overview of the integrated system,
-	including a cutaway figure depicting the fully integrated launch vehicle and
-	its major subsystems--configured for the mission being flown in the
-	competition. This description shall be followed by the follwing subsections.
-	Each subsection shall include detailed descriptions of each subsystem, and
-	reflect the technical analysis used to support design and manufacturing
-	decisions. Technical drawings of these subsystems should be included in the
-	specified appendix.
+    This section shall begin with a top-level overview of the integrated system,
+    including a cutaway figure depicting the fully integrated launch vehicle and
+    its major subsystems – configured for the mission being flown in the
+    competition. This description shall be followed by the following
+    subsections. Each subsection shall include detailed descriptions of each
+    subsystem, and reflect the technical analyses used to support design and
+    manufacturing decisions. The Project Technical Report should not just
+    discuss what the team did, but the reasoning for their choices. These may
+    include, but are not limited to, design goals, limitations, potential
+    trade-offs, anticipated component loads along with safety factors. Technical
+    drawings of these subsystems should be included in the specified appendix.
+    \begin{itemize}
+        \item Propulsion Subystems
+        \item Aero-structures Subsystems
+        \item Recovery Subsystems
+        \item Payload Subsystems
+    \end{itemize}
 }
 
 \def\CONOPSDescription
 {
-	This section shall identify the mission phases, include a figure, and
-	describe the nominal operation of all subsystems during each phase (e.g. a
-	description of what is supposed to be occuring in each phase, and what
-	subsystem[s] are responsible for accomplishing this). Furthermore, this
-	section shall define what mission events signify a phase transition has
-	occured (e.g., ``Ignition'' may begine when a FIRE signal is sent to the
-	igniter and conclude when the propulsion system comes up to chamber
-	pressure. Similarly, ``Liftoff'' may begine at vehicle first motion and
-	conclude when the vehicleis free of the launch rail). Phases and phase
-	transitions are expected to vary from system to system based on specific
-	design implementations and mission goals \& objectives. No matter how a team
-	defines these mission phases, and phase transitions, they will be used to
-	help organize failure modes identified in a Risk Assessment Appendix.
+    The Project Technical Report shall contain a Mission Concept of Operations
+    (CONOPS) Overview. This section shall identify the mission phases, include a
+    figure, and describe the nominal operation of all subsystems during each phase
+    (e.g., a description of what is supposed to be occurring in each phase, and what
+    subsystem[s] are responsible for accomplishing this). Furthermore, this section
+    shall define what mission events signify a phase transition has occurred (e.g.,
+    "Ignition" may begin when a FIRE signal is sent to the igniter and conclude when
+    the propulsion system comes up to chamber pressure. Similarly, "Liftoff" may
+    begin at vehicle first motion, and conclude when the vehicle is free of the
+    launch rail). Phases and phase transitions are expected to vary from system to
+    system based on specific design implementations and mission goals \& objectives.
+    No matter how a team defines these mission phases and phase transitions, they
+    will be used to help organize failure modes identified in a Risk Assessment
+    Appendix – described in Section 2.6.2.9 of this document.
 }
 
 \def\ConclusionDescription
 {
-	This section shall include the lessons learned during the design,
-	manufacture, and testing of the project, both from a team management and
-	technical perspective. Furthermore, this section should include strategies
-	for corporate knowledge transfer from senior student team members to the
-	rising upperclassmen who will soon take their place. 
+    This section shall include the lessons learned during the design, manufacture,
+    and testing of the project, both from a team management and technical
+    development perspective. If you had failures, what did you learn from them?
+    Furthermore, this section should include strategies for corporate knowledge
+    transfer from senior student team members to the rising underclassmen who will
+    soon take their place.
 }
 
 \def\SystemMeasuresDescription
 {
-	This requirement will be satisfied by appending the Third/Final Progress
-	Report as the first appendix of the Project Technical Report. As described
-	in Section 2.7.1 of this document, the Third/Final Progress Report is also
-	submitted as a separate excel file for administrative purposes.
+The first Project Technical Report appendix shall contain System Weights,
+Measures, and Performance Data. All information will be reported using Imperial
+units (inches, feet, pounds, Newtons, etc.) This shall include:
+\begin{enumerate}[a.]
+    \item Basic rocket information, including number of stages, vehicle length,
+    airframe diameter, number of fins, fin semi-span, fin tip and root chord,
+    fin thickness, vehicle weight, propellant weight, empty motor case/structure
+    weight, payload weight, liftoff weight, center of pressure and center of
+    gravity.
+    
+    \item Propulsion information, including motor type, whether it is COTS or
+    SRAD, COTS manufacturer and designation, motor letter classification,
+    average thrust (N), total impulse (Ns) and motor burn time.
+    
+    \item Predicted flight data including launch rail length, liftoff
+    thrust-weight ratio (X:1), rail departure velocity, minimum static margin,
+    maximum acceleration (G), maximum velocity, fin flutter velocity, target,
+    and predicted apogee.
+    
+    \item Include a flight profile graph.
+
+    \item Recovery information, including the COTS and redundant altimeters
+    used, drogue primary and backup deployment charges, drogue deployment
+    altitude, drogue descent rate, main primary and backup deployment charges,
+    main deployment altitude, main descent rate, shock cords and mechanical
+    links.
+\end{enumerate}
 }
 
 \def\TestReportsDescription
 {
 	The second Project Technical Report appendix shall contain applicable Test
-	Reports from the minimum tests prescribed in the \href{IREC Design, Test,
-	and Evaluation Guide}{http://www.soundingrocket.org/sa-cup-documents--forms.html}. 
-	These reports shall appear in the following order. In the event any report
-	is not applicable to the project in question, the team will include a page
-	marked ``THIS PAGE INTENTIONALLY LEFT BLANK'' in its place.
+	Reports from the minimum tests prescribed in the \formlink{IREC Design, Test,
+	\& Evaluation Guide}. These reports shall appear in the following order. In the
+	event any report is not applicable to the project in question, the team will
+	include a page marked ``THIS PAGE INTENTIONALLY LEFT BLANK'' in its place.
 
 	\begin{itemize}
 		\item Recovery System Testing: In addition to descriptions of testing
@@ -85,9 +122,11 @@
 			descriptions of testing performed and the results thereof, teams
 			developing SRAD hybrid or liquid propulsion systems shall include in
 			this appendix a fluid circuit diagram. This figure shall identify
-			nominal operating pressures at various key points in the system –
+			nominal operating pressures at various key points in the system-–
 			including the fill system.
 		\item SRAD Pressure Vessel Testing (if applicable).
+        \item SRAD GPS Testing (if applicable)
+        \item Payload Recovery System Testing (if applicable)
 	\end{itemize}
 }
 
@@ -97,19 +136,18 @@
 	transportation and storage procedures of propellants, and any other aspects
 	of the design which pose potential hazards to operating personnel. A
 	mitigation approach--by process and/or design--shall be defined for each
-	hazard identified. An example of such a matrix is available on \href{the
-	ESRA website}{http://www.soundingrocket.org/sa-cup-documents--forms.html}.
+	hazard identified. An example of such a matrix is available on \formlink{the
+	ESRA website}.
 }
 
 \def\RiskAssessmentDescription
 {
-	This appendix shall summarize risk and reliability concepts
-	associated with the project. All identified failure modes which pose a risk
-	to mission success shall be recorded in a matrix, organized according to the
-	mission phases identified by the CONOPS. A mitigation approach--by process
-	and/or design--shall be defined for each risk identified. An example of
-	such a matrix is available on the\href{the ESRA
-	website}{http://www.soundingrocket.org/sa-cup-documents--forms.html}.
+	This appendix shall summarize risk and reliability concepts associated with the
+	project. All identified failure modes which pose a risk to mission success
+	shall be recorded in a matrix, organized according to the mission phases
+	identified by the CONOPS. A mitigation approach--by process and/or
+	design--shall be defined for each risk identified. An example of such a matrix
+	is available on the\formlink{the ESRA website}.
 }
 
 \def\ChecklistsDescription
@@ -118,24 +156,28 @@
 	assembly, arming, launch, and recovery operations. Furthermore, these
 	checklists shall include alternate process flows for dis-arming/safeing the
 	system based on identified failure modes. These off-nominal checklist
-	procedures shall not conflict with the IREC Range Standard Operating
-	Procedures. Teams developing SRAD hybrid or liquid propulsion systems shall
+	procedures shall not conflict with the \formlink{IREC Range Standard Operating
+	Procedures}. Teams developing SRAD hybrid or liquid propulsion systems shall
 	also include in this appendix a description of processes and procedures used
-	for cleaning all propellent tanks and other fluid circuit components.
+	for cleaning all propellant tanks and other fluid circuit components.
 
-	Competition officials will verify teams are following their checklists
-	during all operations--including assembly, preflight, launch, and recovery
-	operations.  Therefore, teams shall maintain a complete, hardcopy set of
-	these checklist procedures with their flight hardware during all range
-	activities.
+	Competition officials will verify teams are following their checklists during
+	all operations--including assembly, preflight, launch, and recovery operations.
+	Therefore, teams shall maintain a complete, hardcopy set of these checklist
+	procedures with their flight hardware during all range activities.Insufficient
+	detail, failure to bring paper hard copies, and failure to use your team's
+    detailed checklist will make your team ineligible for flight activities until
+    conflicts are resolved. 
 }
 
 \def\DrawingsDescription
 {
-	The sixth Project Technical Report appendix shall contain Engineering
-	Drawings.  This appendix shall include any revision controlled technical
-	drawings necessary to define significant subsystems or components--
-	especially SRAD subsystems or components.
+    The sixth Project Technical Report appendix shall contain detailed Engineering
+    Drawings. This appendix shall include any revision controlled technical drawings
+    necessary to define significant subsystems and components SRAD subsystems or
+    components shall have their own respective detailed Engineering Drawings that
+    are rolled up into the top level assembly. To reduce file size, please do not
+    embed full CAD models – just use a picture.
 }
 
 \def\AcknowledgementsDescription

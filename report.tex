@@ -1,6 +1,6 @@
 % Adapted from the Overleaf AIAA Template by Yevgeniy Gorbachev, 2023-2024
 
-\documentclass[report, wip]{sac}
+\documentclass[report, wip, nodwg]{sac}
 \usepackage[utf8]{inputenc}
 
 \usepackage{siunitx, verbatim} % Text
@@ -42,18 +42,17 @@ and Second B. Buthor\footnote{Buthor Title}
     \renewcommand\arraystretch{1.0}
 	\noindent
     \begin{longtable*}{@{}p{0.3in}@{\quad=\quad}p{5.7in}@{}}
-        \if@wip % EXAMPLES
+    \wiptext{ 
         \(C_\text{D}\) & Drag coefficient (EXAMPLE VARIABLE) \\	
         \(D\) & Parachute diameter (EXAMPLE VARIABLE) \\
         \(A\) & Cross-sectional area (EXAMPLE VARIABLE) \\
         \(v\) & Descent rate (EXAMPLE VARIABLE) \\ 
         \(\rho_0\) & Free-stream density at ground level (EXAMPLE VARIABLE) \\
         \(\rho\) & Free-stream density at altitude (EXAMPLE VARIABLE) \\
-		\fi
+	}
         % ACTUAL CODE HERE
 	\end{longtable*}
- }
-
+}
 
 %%%% REPORT BODY
 	\section{Introduction} \label{intro}
@@ -82,27 +81,30 @@ and Second B. Buthor\footnote{Buthor Title}
     \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
     \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
-	\if@wip
+	\wiptext{
         \input{lib/examples}
-	\fi
+	}
 
 	\section{System Weights, Measures, and Performance Data}\label{measures}
 	\helptext{\SystemMeasuresDescription}
 
 	\pagebreak
-	\section{Project Test Reports}\label{test-reports}
+	\section{Project Test Reports}\label{tests}
 	\helptext{\TestReportsDescription}
 
-	\subsection{Recovery System Testing}\label{recovery-test}
+	\subsection{Recovery System Testing}\label{test-recovery}
     \pageleftblank
 
-	\subsection{SRAD Propulsion System Testing}\label{propulsion-test}
+	\subsection{SRAD Propulsion System Testing}\label{test-propulsion}
 	\pageleftblank
 
-	\subsection{SRAD Pressure Vessel Testing}\label{pressure-test}
+	\subsection{SRAD Pressure Vessel Testing}\label{test-pressure-vessel}
 	\pageleftblank
 
-	\subsection{Payload Recovery System Testing}\label{payload-recovery-test}
+    \subsection{SRAD GPS Testing}\label{gps-test}
+    \pageleftblank
+
+	\subsection{Payload Recovery System Testing}\label{test-payload-recovery}
     \pageleftblank
     
 	\begin{landscape}
